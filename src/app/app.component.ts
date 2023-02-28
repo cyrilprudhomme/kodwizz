@@ -8,6 +8,6 @@ import {UpdateSwService} from "./update-sw.service";
 })
 export class AppComponent {
   constructor(private updateSwService:UpdateSwService) {
-
+this.updateSwService.checked()
   }
 }
