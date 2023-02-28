@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {ToastController} from "@ionic/angular";
+import {AlertController, ToastController} from "@ionic/angular";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ToolboxService {
 
-  constructor(private toastController: ToastController) {
+  constructor(private toastController: ToastController, private alertController: AlertController) {
   }
 
   async presentToast(
@@ -58,5 +58,34 @@ export class ToolboxService {
     });
 
     await toast.present();
+  }
+
+  async presentAlert(header: string, message: string, cancelTxt:string,confirmeTxt:string, callback: void) {
+    const alert = await this.alertController.create({
+      header: header,
+      message: message,
+      buttons: [
+        {
+          text: cancelTxt,
+          role: 'cancel',
+          handler: () => {
+            console.log('Alert canceled');
+          },
+        },
+        {
+          text: confirmeTxt,
+          role: 'confirm',
+          handler: () => {
+            console.log('Alert confirmed');
+            return callback
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+
+    const { role } = await alert.onDidDismiss();
+    console.log(`Dismissed with role: ${role}`);
   }
 }
