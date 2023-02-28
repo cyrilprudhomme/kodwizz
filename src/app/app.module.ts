@@ -15,7 +15,7 @@ import {environment} from "../environments/environment";
  */
 import {
   AngularFireAuthModule,
-  LANGUAGE_CODE,
+  LANGUAGE_CODE, PERSISTENCE,
   SETTINGS as AUTH_SETTINGS,
   USE_DEVICE_LANGUAGE
 } from '@angular/fire/compat/auth';
@@ -42,6 +42,7 @@ import {ScreenTrackingService} from "@angular/fire/analytics";
     {provide: AUTH_SETTINGS, useValue: {appVerificationDisabledForTesting: true}},
     {provide: USE_DEVICE_LANGUAGE, useValue: true},
     {provide: LANGUAGE_CODE, useValue: 'fr'},
+    { provide: PERSISTENCE, useValue: 'session' },
   ],
   bootstrap: [AppComponent],
 })

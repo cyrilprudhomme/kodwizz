@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-settings',
@@ -8,13 +9,13 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 })
 export class SettingsPage implements OnInit {
 
-  constructor(public auth: AngularFireAuth) {
+  constructor(public auth: AngularFireAuth,private router: Router) {
   }
 
   ngOnInit() {
   }
 
   logout() {
-    this.auth.signOut();
+    this.auth.signOut().finally(() => this.router.navigate(["/"]));
   }
 }
