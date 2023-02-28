@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {SwUpdate} from "@angular/service-worker";
+import {UpdateSwService} from "./update-sw.service";
 
 @Component({
   selector: 'app-root',
@@ -7,18 +7,7 @@ import {SwUpdate} from "@angular/service-worker";
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private swUpdate: SwUpdate) {
-  }
-
-  ngOnInit() {
-
-    if (this.swUpdate.isEnabled) {
-
-      this.swUpdate.activateUpdate().then(() => {
-        if(confirm("New version available. Load New Version?")) {
-          window.location.reload();
-        }
-      });
-    }
+  constructor(private updateSwService:UpdateSwService) {
+    this.updateSwService.checked()
   }
 }
