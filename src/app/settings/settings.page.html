@@ -12,10 +12,20 @@
       <ion-title size="large">Settings</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-list>
-    <ion-item (click)="logout()">
-      Se déconnecter
-    </ion-item>
-  </ion-list>
+
+    <ion-list>
+      <ion-item *ngIf="auth.user | async as user">
+        <ion-avatar slot="start">
+          <img src="{{user.photoURL}}"/>
+        </ion-avatar>
+        <ion-label>
+          <h1>{{user.displayName}}</h1>
+          <p>{{user.email}}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item disabled="true">...</ion-item>
+
+    </ion-list>
+      <ion-button (click)="logout()" class="ion-padding" color="light" expand="block" size="small">Déconnexion  </ion-button>
 
 </ion-content>
