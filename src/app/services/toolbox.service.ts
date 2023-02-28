@@ -60,7 +60,7 @@ export class ToolboxService {
     await toast.present();
   }
 
-  async presentAlert(header: string, message: string, cancelTxt:string,confirmeTxt:string, callback: void) {
+  async presentAlert(header: string, message: string, cancelTxt:string,confirmeTxt:string) {
     const alert = await this.alertController.create({
       header: header,
       message: message,
@@ -77,7 +77,7 @@ export class ToolboxService {
           role: 'confirm',
           handler: () => {
             console.log('Alert confirmed');
-            return callback
+            // return callback
           },
         },
       ],
@@ -87,5 +87,6 @@ export class ToolboxService {
 
     const { role } = await alert.onDidDismiss();
     console.log(`Dismissed with role: ${role}`);
+    return role
   }
 }
