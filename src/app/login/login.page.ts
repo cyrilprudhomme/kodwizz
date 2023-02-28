@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).finally(() => this.router.navigate(["/"]));;
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(() => this.router.navigate(["/"]));
   }
 
 }
