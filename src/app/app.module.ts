@@ -41,8 +41,7 @@ import {ScreenTrackingService} from "@angular/fire/analytics";
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     {provide: AUTH_SETTINGS, useValue: {appVerificationDisabledForTesting: true}},
     {provide: USE_DEVICE_LANGUAGE, useValue: true},
-    {provide: LANGUAGE_CODE, useValue: 'fr'},
-    { provide: PERSISTENCE, useValue: 'session' },
+    { provide: PERSISTENCE, useValue: 'local' },
   ],
   bootstrap: [AppComponent],
 })
