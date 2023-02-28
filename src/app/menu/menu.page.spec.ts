@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {IonicModule} from '@ionic/angular';
 
-import { MenuPage } from './menu.page';
+import {MenuPage} from './menu.page';
 
 describe('MenuPage', () => {
   let component: MenuPage;
@@ -9,7 +9,7 @@ describe('MenuPage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuPage ],
+      declarations: [MenuPage],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {Router} from "@angular/router";
 
@@ -9,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class MenuPage implements OnInit {
 
-  constructor(public auth: AngularFireAuth,private router: Router) {
+  constructor(public auth: AngularFireAuth, private router: Router) {
   }
 
   ngOnInit() {
